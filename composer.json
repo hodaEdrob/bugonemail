@@ -1,5 +1,5 @@
 {
-    "name": "dinesh/bugonemail",
+    "name": "edrob/bugonemail",
     "description": "Get Laravel Bug or Error instant notification by Emails ",
     "keywords": ["laravel", "Bug", "BugOnEmail", "Bug Email", "Error", "Error on Email","instant bug","instant error"],
     "license": "MIT",
@@ -7,6 +7,10 @@
         {
             "name": "Dinesh Rabara",
             "email": "dinesh.rabara@gmail.com"
+        },
+        {
+            "name": "Hoda Shirzad",
+            "email": "hoda@edwardrobertson.co.uk"
         }
     ],
     "require": {
@@ -21,5 +25,12 @@
             "Dinesh\\Bugonemail\\": "src/"
         }
     },
-    "minimum-stability": "dev"
+    "minimum-stability": "dev",
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Dinesh\\Bugonemail\\BugonemailServiceProvider"
+            ]
+        }
+    }
 }
