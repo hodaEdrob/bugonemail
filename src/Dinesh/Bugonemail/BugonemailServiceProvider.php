@@ -45,16 +45,15 @@ class BugonemailServiceProvider extends ServiceProvider
         $configPath = __DIR__.'/../../config/bugonemail.php';
         $this->mergeConfigFrom($configPath, 'bugonemail');
 
-        $this->app['BugeException'] = $this->app->share(function($app) {
+        $this->app->singleton('BugeException', function($app){
             $config = $app['config']['bugonemail'];
             $bug    = new BugeException($config);
-
             if (in_array($app->environment(), $config['notify_environment'])) {
                 $bug->setEnvironment($app->environment());
             }
-
             return $bug;
         });
+
         $this->app->singleton('Bugonemail',
             function ($app) {
             $config = $app['config']['bugonemail'];
